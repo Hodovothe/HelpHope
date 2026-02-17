@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bdtbq5dlvn6wj"]
+
+[ext_resource type="Texture2D" uid="uid://bd08rbxnjh0vf" path="res://imagenes/Untitled 02-16-2026 08-46-23.png" id="1_ici0g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e31do"]
+radius = 43.32436
+
+[sub_resource type="Animation" id="Animation_eifss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.08726646]
+}
+
+[sub_resource type="Animation" id="Animation_w68vb"]
+resource_name = "queguapada"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.08726646, 0.08726646]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a122l"]
+_data = {
+&"RESET": SubResource("Animation_eifss"),
+&"queguapada": SubResource("Animation_w68vb")
+}
+
+[node name="Jugador1" type="CharacterBody2D" unique_id=1249370041]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1203095243]
+position = Vector2(86.99999, -48.00003)
+rotation = -0.08726646
+scale = Vector2(0.29767308, 0.34850454)
+texture = ExtResource("1_ici0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=430584586]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_e31do")
+
+[node name="Animacion" type="AnimationPlayer" parent="." unique_id=1634640753]
+libraries/ = SubResource("AnimationLibrary_a122l")
